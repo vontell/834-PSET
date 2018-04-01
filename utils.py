@@ -10,6 +10,8 @@ from numpy_sift import SIFTDescriptor
 from nose.tools import assert_equal, ok_
 from IPython.display import display, HTML, clear_output
 
+psetLabels = []
+
 def test_ok():
     """ If execution gets to this point, print out a happy message """
     try:
@@ -31,11 +33,11 @@ def check_example(param):
 
 def kmeans_accuracy(preds, labels_list):
     if labels_list[0] == 'Auditorium':
-        gt1 = np.array([1 for i in range(20)] + [0 for i in range(31)])
-        gt2 = np.array([0 for i in range(20)] + [1 for i in range(31)])
+        gt1 = np.array([1 for i in range(20)] + [0 for i in range(29)])
+        gt2 = np.array([0 for i in range(20)] + [1 for i in range(29)])
     elif labels_list[0] == 'Bowling':
-        gt1 = np.array([1 for i in range(31)] + [0 for i in range(20)])
-        gt2 = np.array([0 for i in range(31)] + [1 for i in range(20)])
+        gt1 = np.array([1 for i in range(29)] + [0 for i in range(20)])
+        gt2 = np.array([0 for i in range(29)] + [1 for i in range(20)])
     else:
         return -1
     return max(np.sum(gt1 == preds), np.sum(gt2 == preds)) * 1.0 / gt1.size
