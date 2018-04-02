@@ -100,13 +100,12 @@ def return_labels(directoryList, range_size, added_limit, count_limit, patch_siz
 
 
 def check_bof_accuracy(labeled_images):
-    #First 5 are Auditorium
-    #Second 5 are Bowling
+    #First 5 are Bowling
+    #Second 5 are Auditorium
     
     labels = np.array([labeled_images[1] for i in range(len(labeled_images))])
-    print(labels)
-    correct_labels = np.array(["Auditorium" for i in range(5)] + ["Bowling" for i in range(5)])
+    correct_labels = np.array(["Bowling" for i in range(5)] + ["Auditorium" for i in range(5)])
     
-    return max(np.sum(correct_labels == labels)* 1.0 / labels.size)
+    return (np.sum(correct_labels == labels)* 1.0 / labels.size)
      
 
