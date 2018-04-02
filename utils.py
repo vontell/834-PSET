@@ -33,11 +33,11 @@ def check_example(param):
 
 def kmeans_accuracy(preds, labels_list):
     if labels_list[0] == 'Auditorium':
-        gt1 = np.array([1 for i in range(20)] + [0 for i in range(29)])
-        gt2 = np.array([0 for i in range(20)] + [1 for i in range(29)])
+        gt1 = np.array([1 for i in range(18)] + [0 for i in range(24)])
+        gt2 = np.array([0 for i in range(18)] + [1 for i in range(24)])
     elif labels_list[0] == 'Bowling':
-        gt1 = np.array([1 for i in range(29)] + [0 for i in range(20)])
-        gt2 = np.array([0 for i in range(29)] + [1 for i in range(20)])
+        gt1 = np.array([1 for i in range(24)] + [0 for i in range(18)])
+        gt2 = np.array([0 for i in range(24)] + [1 for i in range(18)])
     else:
         return -1
     return max(np.sum(gt1 == preds), np.sum(gt2 == preds)) * 1.0 / gt1.size
