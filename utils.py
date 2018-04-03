@@ -116,7 +116,7 @@ def check_bof_accuracy(labeled_images):
     #First 5 are Bowling
     #Second 5 are Auditorium
     
-    labels = np.array([labeled_images[1] for i in range(len(labeled_images))])
+    labels = np.array([labeled_images[i][1] for i in range(len(labeled_images))])
     correct_labels = np.array(["Bowling" for i in range(5)] + ["Auditorium" for i in range(5)])
     
     return (np.sum(correct_labels == labels)* 1.0 / labels.size)
