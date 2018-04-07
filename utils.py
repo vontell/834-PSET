@@ -35,9 +35,10 @@ def test_MSER(MSER):
     return "Tests passed!"
 
 def test_knn(classify_new_images):
-    k = 10
-    count_limit = 10
-    labeled_images = classify_new_images(k, count_limit)
+    k = 9
+    added_limit = 10
+    neighbors = 5
+    labeled_images = classify_new_images(added_limit, k, 5)
     predictions = list(map(lambda x: x[1], labeled_images))
     
     print(predictions)
@@ -48,7 +49,7 @@ def test_knn(classify_new_images):
 def test_process_training_data(process_training_data):
     results = process_training_data(count_limit=12, k=5)[0]
     student_labels = list(map(lambda x: x[1], results))
-    staff_results = [([16, 64, 14, 12, 22], 'Bowling'), ([24, 51, 18, 11, 24], 'Bowling'), ([29, 35, 19, 14, 31], 'Bowling'), ([28, 40, 17, 14, 29], 'Bowling'), ([21, 57, 10, 17, 23], 'Bowling'), ([22, 62, 22, 9, 13], 'Bowling'), ([34, 37, 14, 12, 31], 'Bowling'), ([19, 68, 15, 9, 17], 'Bowling'), ([38, 23, 18, 15, 34], 'Bowling'), ([27, 41, 20, 12, 28], 'Bowling'), ([26, 38, 21, 12, 31], 'Bowling'), ([28, 44, 18, 16, 22], 'Bowling'), ([21, 49, 20, 10, 28], 'Bowling'), ([36, 43, 18, 10, 21], 'Bowling'), ([35, 32, 20, 11, 30], 'Bowling'), ([19, 54, 17, 12, 26], 'Bowling'), ([24, 54, 16, 13, 21], 'Bowling'), ([35, 34, 14, 12, 33], 'Bowling'), ([27, 47, 18, 12, 24], 'Bowling'), ([26, 40, 19, 16, 27], 'Bowling'), ([26, 54, 22, 8, 18], 'Bowling'), ([15, 65, 14, 11, 23], 'Bowling'), ([28, 44, 15, 18, 23], 'Bowling'), ([26, 41, 11, 20, 30], 'Bowling'), ([36, 37, 14, 11, 30], 'Auditorium'), ([25, 48, 20, 15, 20], 'Auditorium'), ([27, 48, 14, 14, 25], 'Auditorium'), ([28, 48, 16, 19, 17], 'Auditorium'), ([26, 42, 21, 16, 23], 'Auditorium'), ([24, 46, 18, 13, 27], 'Auditorium'), ([34, 41, 13, 13, 27], 'Auditorium'), ([27, 48, 12, 11, 30], 'Auditorium'), ([29, 25, 16, 19, 39], 'Auditorium'), ([19, 52, 21, 15, 21], 'Auditorium'), ([35, 24, 20, 10, 39], 'Auditorium'), ([26, 44, 17, 15, 26], 'Auditorium'), ([28, 58, 17, 6, 19], 'Auditorium'), ([29, 43, 16, 16, 24], 'Auditorium'), ([27, 41, 19, 13, 28], 'Auditorium'), ([41, 25, 24, 9, 29], 'Auditorium'), ([38, 40, 20, 11, 19], 'Auditorium'), ([26, 50, 17, 10, 25], 'Auditorium')]
+    staff_results = [([3, 1, 0, 4, 4], 'Bowling'), ([3, 1, 2, 5, 1], 'Bowling'), ([1, 4, 0, 4, 3], 'Bowling'), ([1, 4, 3, 1, 3], 'Bowling'), ([2, 5, 1, 1, 3], 'Bowling'), ([0, 4, 5, 3, 0], 'Bowling'), ([0, 0, 6, 5, 1], 'Bowling'), ([0, 6, 4, 0, 2], 'Bowling'), ([0, 7, 3, 2, 0], 'Bowling'), ([5, 0, 1, 3, 3], 'Bowling'), ([0, 3, 0, 2, 7], 'Bowling'), ([2, 2, 0, 8, 0], 'Bowling'), ([2, 0, 1, 5, 4], 'Bowling'), ([0, 9, 1, 1, 1], 'Bowling'), ([2, 4, 3, 1, 2], 'Bowling'), ([0, 3, 0, 5, 4], 'Bowling'), ([2, 0, 4, 1, 5], 'Bowling'), ([3, 0, 1, 2, 6], 'Bowling'), ([3, 2, 5, 2, 0], 'Bowling'), ([2, 5, 2, 2, 1], 'Bowling'), ([0, 2, 0, 9, 1], 'Bowling'), ([3, 1, 4, 1, 3], 'Bowling'), ([0, 9, 0, 2, 1], 'Bowling'), ([5, 0, 1, 0, 6], 'Bowling'), ([1, 2, 3, 5, 1], 'Auditorium'), ([2, 2, 5, 0, 3], 'Auditorium'), ([1, 3, 2, 5, 1], 'Auditorium'), ([4, 0, 6, 0, 2], 'Auditorium'), ([0, 2, 5, 2, 3], 'Auditorium'), ([0, 2, 4, 5, 1], 'Auditorium'), ([1, 2, 0, 1, 8], 'Auditorium'), ([0, 5, 2, 4, 1], 'Auditorium'), ([2, 1, 0, 2, 7], 'Auditorium'), ([1, 1, 3, 6, 1], 'Auditorium'), ([1, 0, 2, 5, 4], 'Auditorium'), ([1, 0, 2, 2, 7], 'Auditorium'), ([1, 2, 3, 3, 3], 'Auditorium'), ([0, 0, 2, 5, 5], 'Auditorium'), ([0, 4, 0, 4, 4], 'Auditorium'), ([2, 0, 1, 3, 6], 'Auditorium'), ([0, 7, 3, 2, 0], 'Auditorium'), ([5, 0, 0, 1, 6], 'Auditorium')]
     
     all_lists = True
     for tup in results:
